@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "en-US" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{- if templates.Exists "partials/head.html" }}
+        {{ partial "head.html" . }}
+    {{- end }}
+</head>
+<body>
+    {{- if templates.Exists "partials/body.html" }}
+        {{ partial "body.html" . }}
+    {{- end }}
+    
+    {{/* Mermaid支持 */}}
+    {{ if .Page.Store.Get "hasMermaid" }}
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default'
+            });
+        </script>
+    {{ end }}
+</body>
+</html>
