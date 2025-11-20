@@ -1,0 +1,34 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-cn'
+title = '个人博客'
+theme = 'PaperMod'
+
+[params]
+  author = '博主名称'
+  # 主题相关配置
+  env = 'production'
+  description = '欢迎来到我的个人博客'
+  keywords = ['博客', 'Hugo', 'PaperMod']
+  # 开启导航栏
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+
+# 配置菜单
+[[menu.main]]
+  identifier = 'home'
+  name = '首页'
+  url = '/'
+  weight = 1
+
+[[menu.main]]
+  identifier = 'posts'
+  name = '文章'
+  url = '/posts/'
+  weight = 2
+
+[[menu.main]]
+  identifier = 'about'
+  name = '关于'
+  url = '/about/'
+  weight = 3
