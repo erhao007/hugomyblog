@@ -4,11 +4,11 @@ title = '个人博客'
 theme = 'PaperMod'
 
 [params]
-  author = '博主名称'
+  author = '张二浩'
   # 主题相关配置
   env = 'production'
   description = '欢迎来到我的个人博客'
-  keywords = ['博客', 'Hugo', 'PaperMod']
+  keywords = ['博客', '科技', '信息', 'AI']
   # 开启导航栏
   ShowReadingTime = true
   ShowShareButtons = true
