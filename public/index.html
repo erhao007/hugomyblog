@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="auto" data-theme="auto">
+
 <head>
-	<meta name="generator" content="Hugo 0.147.4"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -22,7 +20,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/">
+<link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/">
 <noscript>
     <style>
         #theme-toggle,
@@ -98,9 +96,175 @@
 }
 </script>
 </head>
-<body>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="个人博客 (Alt + H)">个人博客</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="首页">
+                    <span class="active">首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="first-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">使用 Cloudflare Pages 搭建个人博客的完整指南
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>使用 Cloudflare Pages 搭建个人博客的完整指南 Cloudflare Pages 是 Cloudflare 提供的免费静态网站托管服务，支持无缝集成 GitHub/GitLab，自动构建部署，提供全球 CDN 加速、免费 SSL 证书、无限带宽和请求（免费额度内）。它非常适合搭建个人博客，尤其是结合静态站点生成器（如 Hugo、Hexo、Astro 或 Jekyll），速度快、成本为零，且国内访问体验优于 GitHub Pages。
+以下是 Cloudflare Pages 博客搭建的完整流程图：
+graph TD A[准备前提条件] --&gt; B[安装Hugo并创建本地博客] B --&gt; C[推送到GitHub仓库] C --&gt; D[在Cloudflare Pages部署] D --&gt; E{是否需要自定义域名?} E --&gt;|是| F[绑定自定义域名] E --&gt;|否| G[博客搭建完成] F --&gt; G subgraph 前提条件 A1[GitHub账号] A2[Cloudflare账号] A3[可选自定义域名] end subgraph 本地开发 B1[安装Hugo Extended版本] B2[创建新站点] B3[添加主题] B4[配置网站] B5[创建文章] B6[本地预览] end subgraph GitHub托管 C1[创建仓库] C2[添加远程仓库] C3[提交推送代码] end subgraph Cloudflare部署 D1[连接GitHub仓库] D2[配置构建命令] D3[设置环境变量] D4[保存并部署] end subgraph 域名配置 F1[DNS迁移到Cloudflare] F2[添加自定义域名] F3[更新baseURL配置] end 下面以最流行的 Hugo（推荐：生成速度极快、Go 语言编写）为例，详细说明步骤。如果你更喜欢 Hexo（Node.js 기반），步骤类似，只需调整构建命令。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-20 15:58:05 +0800 CST'>November 20, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>张二浩</span></footer>
+  <a class="entry-link" aria-label="post link to 使用 Cloudflare Pages 搭建个人博客的完整指南" href="http://localhost:1313/posts/cloudflare-pages-blog-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">我的第一篇博客文章
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>欢迎来到我的博客 这是我使用Hugo和PaperMod主题创建的第一个博客文章。
+关于这个博客 这个博客将用来分享我的学习笔记、技术心得和生活感悟。
+Hugo的优势 速度快：Hugo是最快的静态网站生成器之一 主题丰富：有许多精美的主题可以选择 部署简单：生成的是纯静态文件，可以部署到任何静态文件服务器 Markdown支持：使用Markdown写作，简单高效 希望大家喜欢我的博客！
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-20 15:34:52 +0800 CST'>November 20, 2025</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>张二浩</span></footer>
+  <a class="entry-link" aria-label="post link to 我的第一篇博客文章" href="http://localhost:1313/posts/first-post/"></a>
+</article>
+    </main>
     
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">个人博客</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js" 
+    integrity="sha384-7Q8XaCgFJlm82NdMNnX7AIyZbdTjUre2eR4TpKK1Pko3zKXorgTIGVpnnLho+UAe" 
+    crossorigin="anonymous">
+</script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
     
-    
+    if (typeof mermaid !== 'undefined') {
+        
+        mermaid.initialize({ startOnLoad: true });
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
+
 </html>

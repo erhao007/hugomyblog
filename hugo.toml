@@ -3,21 +3,65 @@ languageCode = 'zh-cn'
 title = '个人博客'
 theme = 'PaperMod'
 
+# 默认情况下，Hugo 使用 Goldmark 渲染器
+defaultContentLanguage = 'zh-cn'
+
+# =================================================================
+# 核心配置：启用 Mermaid (通过 Hugo 的 Goldmark 渲染器)
+# -----------------------------------------------------------------
+# 这部分配置告诉 Hugo 如何处理 Markdown 中的 `mermaid` 代码块。
+# =================================================================
+# =================================================================
+# 核心配置：启用 Mermaid (修正后的 TOML 结构)
+# =================================================================
+[markup]
+  # 顶级表格
+
+# 使用完整的路径定义子表格，防止解析错误
+[markup.goldmark]
+  
+  [markup.goldmark.renderer]
+    # 允许渲染 Mermaid 所需的原始 HTML 和 JavaScript，这是关键！
+    unsafe = true
+
+  [markup.goldmark.extensions]
+    [markup.goldmark.extensions.mermaid]
+      # 显式启用内置 Mermaid 扩展（用于识别 `mermaid` 语言类型）
+      enable = true
+
+# 代码高亮配置
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  style = 'github'
+
+# =================================================================
+# 主题配置：PaperMod [params]
+# -----------------------------------------------------------------
+# 这部分配置告诉 PaperMod 主题在页面上加载 Mermaid.js 脚本。
+# =================================================================
 [params]
   author = '张二浩'
-  # 主题相关配置
   env = 'production'
   description = '欢迎来到我的个人博客'
   keywords = ['博客', '科技', '信息', 'AI']
-  # 开启导航栏
+  
+  # 开启 PaperMod 核心功能
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
-  ShowMermaid = true          # 新版写法（优先）
-  mermaid = true              # 兼容旧写法
-  mermaidZoom = true          # 允许点击放大（可选）
+  
+  # --- PaperMod 启用 Mermaid 脚本加载 (关键) ---
+  # 这个键告诉 PaperMod 在页面底部注入 Mermaid.js 脚本。
+  ShowMermaid = true 
+  
+  # 其他可选的 PaperMod 配置示例
+  # defaultTheme = "auto" # 自动根据系统设置切换亮/暗模式
+  # assets = { disableFingerprinting = true }
 
-# 配置菜单
+# =================================================================
+# 菜单配置
+# =================================================================
 [[menu.main]]
   identifier = 'home'
   name = '首页'
