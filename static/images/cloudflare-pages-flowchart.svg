@@ -1,0 +1,87 @@
+<svg width="800" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景和标题 -->
+  <rect width="800" height="1200" fill="#f9f9f9"/>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Cloudflare Pages 博客搭建流程</text>
+  
+  <!-- 样式定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- 节点样式函数 -->
+  <g>
+    <!-- 前提条件 -->
+    <rect x="250" y="100" width="300" height="60" rx="10" ry="10" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+    <text x="400" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">前提条件</text>
+    
+    <!-- 前提条件列表 -->
+    <rect x="200" y="180" width="400" height="100" rx="5" ry="5" fill="white" stroke="#0288d1" stroke-width="1"/>
+    <text x="400" y="210" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">• GitHub 账号</text>
+    <text x="400" y="235" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">• Cloudflare 账号</text>
+    <text x="400" y="260" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">• （可选）自定义域名</text>
+    
+    <!-- 步骤1 -->
+    <rect x="250" y="300" width="300" height="60" rx="10" ry="10" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="400" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">步骤1: 安装Hugo并创建本地博客</text>
+    
+    <!-- 步骤1内容 -->
+    <rect x="200" y="380" width="400" height="160" rx="5" ry="5" fill="white" stroke="#388e3c" stroke-width="1"/>
+    <text x="400" y="410" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">1. 下载安装Hugo Extended版本</text>
+    <text x="400" y="435" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">2. 创建新站点: hugo new site my-blog</text>
+    <text x="400" y="460" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">3. 添加主题（如Stack或PaperMod）</text>
+    <text x="400" y="485" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">4. 配置config.toml</text>
+    <text x="400" y="510" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">5. 创建文章并本地预览</text>
+    
+    <!-- 步骤2 -->
+    <rect x="250" y="560" width="300" height="60" rx="10" ry="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="400" y="600" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">步骤2: 推送到GitHub</text>
+    
+    <!-- 步骤2内容 -->
+    <rect x="200" y="640" width="400" height="100" rx="5" ry="5" fill="white" stroke="#f57c00" stroke-width="1"/>
+    <text x="400" y="670" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">1. 创建GitHub仓库</text>
+    <text x="400" y="695" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">2. 添加远程仓库: git remote add origin</text>
+    <text x="400" y="720" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">3. 提交并推送: git push -u origin main</text>
+    
+    <!-- 步骤3 -->
+    <rect x="250" y="760" width="300" height="60" rx="10" ry="10" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="400" y="800" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">步骤3: 在Cloudflare Pages部署</text>
+    
+    <!-- 步骤3内容 -->
+    <rect x="200" y="840" width="400" height="140" rx="5" ry="5" fill="white" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="400" y="870" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">1. 登录Cloudflare Dashboard → Pages</text>
+    <text x="400" y="895" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">2. 连接GitHub仓库</text>
+    <text x="400" y="920" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">3. 配置构建命令和输出目录</text>
+    <text x="400" y="945" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">4. 设置HUGO_VERSION环境变量</text>
+    <text x="400" y="970" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">5. 点击Save and Deploy</text>
+    
+    <!-- 步骤4 -->
+    <rect x="250" y="1010" width="300" height="60" rx="10" ry="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="400" y="1050" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">步骤4: 绑定自定义域名（可选）</text>
+    
+    <!-- 步骤4内容 -->
+    <rect x="200" y="1090" width="400" height="100" rx="5" ry="5" fill="white" stroke="#1976d2" stroke-width="1"/>
+    <text x="400" y="1120" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">1. 将域名NS记录指向Cloudflare</text>
+    <text x="400" y="1145" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">2. 在Pages中添加自定义域名</text>
+    <text x="400" y="1170" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">3. 更新Hugo配置中的baseURL</text>
+    
+    <!-- 箭头连接 -->
+    <line x1="400" y1="160" x2="400" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="280" x2="400" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="360" x2="400" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="540" x2="400" y2="560" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="620" x2="400" y2="640" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="740" x2="400" y2="760" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="820" x2="400" y2="840" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="990" x2="400" y2="1010" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="400" y1="1070" x2="400" y2="1090" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 完成节点 -->
+    <circle cx="400" cy="1200" r="40" fill="#dcedc8" stroke="#558b2f" stroke-width="2"/>
+    <text x="400" y="1200" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" dy=".3em">博客搭建完成！</text>
+    
+    <!-- 最后一个箭头 -->
+    <line x1="400" y1="1190" x2="400" y2="1160" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+</svg>

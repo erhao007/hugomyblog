@@ -13,6 +13,9 @@ theme = 'PaperMod'
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
+  ShowMermaid = true          # 新版写法（优先）
+  mermaid = true              # 兼容旧写法
+  mermaidZoom = true          # 允许点击放大（可选）
 
 # 配置菜单
 [[menu.main]]

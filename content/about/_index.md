@@ -15,6 +15,6 @@ description = '关于博主的介绍'
 
 ## 联系方式
 
-如果你有任何问题或建议，欢迎与我联系。
+如果你有任何问题或建议，欢迎与我联系，邮箱：[erhao007@gmail.com](mailto:erhao007@gmail.com)。
 
 感谢访问我的博客！

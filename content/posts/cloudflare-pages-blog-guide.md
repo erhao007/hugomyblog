@@ -9,6 +9,53 @@ description = '详细介绍如何使用Cloudflare Pages和Hugo搭建免费、快
 
 Cloudflare Pages 是 Cloudflare 提供的免费静态网站托管服务，支持无缝集成 GitHub/GitLab，自动构建部署，提供全球 CDN 加速、免费 SSL 证书、无限带宽和请求（免费额度内）。它非常适合搭建个人博客，尤其是结合静态站点生成器（如 Hugo、Hexo、Astro 或 Jekyll），速度快、成本为零，且国内访问体验优于 GitHub Pages。
 
+以下是 Cloudflare Pages 博客搭建的完整流程图：
+
+```mermaid
+graph TD
+    A[准备前提条件] --> B[安装Hugo并创建本地博客]
+    B --> C[推送到GitHub仓库]
+    C --> D[在Cloudflare Pages部署]
+    D --> E{是否需要自定义域名?}
+    E -->|是| F[绑定自定义域名]
+    E -->|否| G[博客搭建完成]
+    F --> G
+    
+    subgraph 前提条件
+    A1[GitHub账号]
+    A2[Cloudflare账号]
+    A3[可选自定义域名]
+    end
+    
+    subgraph 本地开发
+    B1[安装Hugo Extended版本]
+    B2[创建新站点]
+    B3[添加主题]
+    B4[配置网站]
+    B5[创建文章]
+    B6[本地预览]
+    end
+    
+    subgraph GitHub托管
+    C1[创建仓库]
+    C2[添加远程仓库]
+    C3[提交推送代码]
+    end
+    
+    subgraph Cloudflare部署
+    D1[连接GitHub仓库]
+    D2[配置构建命令]
+    D3[设置环境变量]
+    D4[保存并部署]
+    end
+    
+    subgraph 域名配置
+    F1[DNS迁移到Cloudflare]
+    F2[添加自定义域名]
+    F3[更新baseURL配置]
+    end
+```
+
 下面以最流行的 **Hugo**（推荐：生成速度极快、Go 语言编写）为例，详细说明步骤。如果你更喜欢 Hexo（Node.js  기반），步骤类似，只需调整构建命令。
 
 ## 前提条件
@@ -18,7 +65,7 @@ Cloudflare Pages 是 Cloudflare 提供的免费静态网站托管服务，支持
 
 ## 步骤 1: 安装 Hugo 并创建本地博客
 1. 下载 Hugo（推荐 extended 版，支持 Sass 等高级功能）：
-   - Windows/Mac/Linux 官网下载：[https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases)（选择最新版本，如 hugo_extended_0.134.0 或更高）。
+   - Windows/Mac/Linux 官网下载：[https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases)（选择最新版本，如 hugo_extended_0.147.0 或更高）。
    - 安装后在终端运行 `hugo version` 验证。
 
 2. 创建新站点：
