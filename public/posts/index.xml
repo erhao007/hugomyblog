@@ -22,5 +22,12 @@
       <guid>http://localhost:1313/posts/first-post/</guid>
       <description>这是我使用Hugo创建的第一篇博客文章</description>
     </item>
+    <item>
+      <title>Goxue Engine：专为儿童设计的互动式教育平台</title>
+      <link>http://localhost:1313/posts/goxue-engine-intro/</link>
+      <pubDate>Wed, 01 Jan 2025 20:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/goxue-engine-intro/</guid>
+      <description>分享我开发的面向儿童的互动式教育平台，包含Canvas动画、Mermaid思维导图等创新功能</description>
+    </item>
   </channel>
 </rss>

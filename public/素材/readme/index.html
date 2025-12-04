@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>个人博客</title>
+<meta name="keywords" content="">
+<meta name="description" content="Goxue Engine
+
+  
+  
+  
+  
+
+一个面向儿童的互动式教育平台，支持富文本内容发布、Canvas 动画展示、Mermaid 思维导图，以及完善的内容管理系统。
+✨ 核心特性
+📝 内容创作与展示
+
+Markdown 编辑器: 基于 v-md-editor 的强大文本编辑功能
+Canvas 动画: 支持自定义 JavaScript 动画代码，实现交互式问题解析
+
+重播动画功能
+全屏播放支持
+响应式画布尺寸适配
+
+
+Mermaid 思维导图: 支持多种图表类型
+
+思维导图 (mindmap)
+流程图 (flowchart)
+时序图 (sequence diagram)
+甘特图 (gantt)
+以及更多&hellip;
+
+
+
+🎨 交互式图表控制
+
+缩放功能: 放大/缩小思维导图
+拖拽平移: 自由拖动查看大型图表
+旋转视图: 支持 ±90° 旋转查看
+重置视图: 一键恢复默认视图
+全屏模式: 沉浸式查看体验
+
+👤 用户系统
+
+微信一键登录: 集成微信授权
+角色权限管理: User / Admin 双角色体系
+个人中心: 用户信息管理
+
+🛡️ 内容管理
+
+审核流程: 管理员审核机制
+分类管理: 内容分类与组织
+公开访问: 支持未登录用户浏览文章详情页
+
+🏗️ 技术架构
+后端技术栈
+
+语言: Go 1.21&#43;
+框架: Beego v2
+数据库: MySQL
+配置: .env 环境变量管理
+架构: 模块化分层架构 (RESTful API)
+
+前端技术栈
+
+框架: Vue 3 &#43; TypeScript
+UI 库: Element Plus
+构建工具: Vite
+状态管理: Pinia
+编辑器:
+
+@kangc/v-md-editor (Markdown)
+mermaid (图表渲染)
+
+
+可视化增强:
+
+svg-pan-zoom (SVG 交互控制)
+Canvas API (动画渲染)
+
+
+
+移动端 (可选)
+
+框架: unibest (uni-app &#43; Vue 3)
+多端支持: 可编译为 H5 或微信小程序
+
+📁 项目结构
+Goxue_Engine/
+├── backend/                 # Go &#43; Beego v2 后端
+│   ├── conf/               # 应用配置
+│   ├── modules/            # 业务模块
+│   │   ├── user/          # 用户模块
+│   │   ├── content/       # 内容模块
+│   │   └── common/        # 公共模块
+│   ├── routers/           # API 路由
+│   ├── static/            # 静态资源
+│   │   └── admin/        # 前端构建产物
+│   ├── main.go
+│   └── .env              # 环境配置
+├── frontend/              # Vue 3 &#43; Element Plus 管理后台
+│   ├── src/
+│   │   ├── api/          # API 接口
+│   │   ├── views/        # 页面组件
+│   │   ├── plugins/      # 插件配置 (v-md-editor)
+│   │   └── types/        # TypeScript 类型定义
+│   ├── vite.config.ts
+│   └── package.json
+└── mobile/               # uni-app 移动端 (可选)
+    ├── src/
+    └── package.json
+🚀 快速开始
+环境要求
+
+Go 1.24&#43;
+Node.js 16&#43;
+MySQL 8.0&#43;
+
+后端启动
+
+配置环境变量
+
+cd backend
+# 直接编辑现有的 .env 文件
+# 配置数据库连接等信息
+
+安装依赖
+
+go mod tidy
+
+初始化数据库
+
+# 执行 SQL 初始化脚不需要安装
+# mysql -u root -p goxue_db &lt; init.sql
+
+编译二进制包
+
+# 编译当前平台
+# go build -o backend main.go
+# 编译 Linux 平台
+# GOOS=linux GOARCH=amd64 go build -o backend main.go
+# 编译 Windows 平台
+# GOOS=windows GOARCH=amd64 go build -o backend.exe main.go
+# 编译 macOS 平台
+GOOS=darwin GOARCH=amd64 go build -o backend main.go
+
+启动服务
+
+# 方式一：直接运行编译好的二进制文件
+./backend
+# 方式二：使用 go run 直接运行
+# go run main.go
+后端服务默认运行在 http://localhost:8080">
+<meta name="author" content="张二浩">
+<link rel="canonical" href="http://localhost:1313/%E7%B4%A0%E6%9D%90/readme/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/%E7%B4%A0%E6%9D%90/readme/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/%E7%B4%A0%E6%9D%90/readme/">
+  <meta property="og:site_name" content="个人博客">
+  <meta property="og:title" content="个人博客">
+  <meta property="og:description" content="Goxue Engine 一个面向儿童的互动式教育平台，支持富文本内容发布、Canvas 动画展示、Mermaid 思维导图，以及完善的内容管理系统。
+✨ 核心特性 📝 内容创作与展示 Markdown 编辑器: 基于 v-md-editor 的强大文本编辑功能 Canvas 动画: 支持自定义 JavaScript 动画代码，实现交互式问题解析 重播动画功能 全屏播放支持 响应式画布尺寸适配 Mermaid 思维导图: 支持多种图表类型 思维导图 (mindmap) 流程图 (flowchart) 时序图 (sequence diagram) 甘特图 (gantt) 以及更多… 🎨 交互式图表控制 缩放功能: 放大/缩小思维导图 拖拽平移: 自由拖动查看大型图表 旋转视图: 支持 ±90° 旋转查看 重置视图: 一键恢复默认视图 全屏模式: 沉浸式查看体验 👤 用户系统 微信一键登录: 集成微信授权 角色权限管理: User / Admin 双角色体系 个人中心: 用户信息管理 🛡️ 内容管理 审核流程: 管理员审核机制 分类管理: 内容分类与组织 公开访问: 支持未登录用户浏览文章详情页 🏗️ 技术架构 后端技术栈 语言: Go 1.21&#43; 框架: Beego v2 数据库: MySQL 配置: .env 环境变量管理 架构: 模块化分层架构 (RESTful API) 前端技术栈 框架: Vue 3 &#43; TypeScript UI 库: Element Plus 构建工具: Vite 状态管理: Pinia 编辑器: @kangc/v-md-editor (Markdown) mermaid (图表渲染) 可视化增强: svg-pan-zoom (SVG 交互控制) Canvas API (动画渲染) 移动端 (可选) 框架: unibest (uni-app &#43; Vue 3) 多端支持: 可编译为 H5 或微信小程序 📁 项目结构 Goxue_Engine/ ├── backend/ # Go &#43; Beego v2 后端 │ ├── conf/ # 应用配置 │ ├── modules/ # 业务模块 │ │ ├── user/ # 用户模块 │ │ ├── content/ # 内容模块 │ │ └── common/ # 公共模块 │ ├── routers/ # API 路由 │ ├── static/ # 静态资源 │ │ └── admin/ # 前端构建产物 │ ├── main.go │ └── .env # 环境配置 ├── frontend/ # Vue 3 &#43; Element Plus 管理后台 │ ├── src/ │ │ ├── api/ # API 接口 │ │ ├── views/ # 页面组件 │ │ ├── plugins/ # 插件配置 (v-md-editor) │ │ └── types/ # TypeScript 类型定义 │ ├── vite.config.ts │ └── package.json └── mobile/ # uni-app 移动端 (可选) ├── src/ └── package.json 🚀 快速开始 环境要求 Go 1.24&#43; Node.js 16&#43; MySQL 8.0&#43; 后端启动 配置环境变量 cd backend # 直接编辑现有的 .env 文件 # 配置数据库连接等信息 安装依赖 go mod tidy 初始化数据库 # 执行 SQL 初始化脚不需要安装 # mysql -u root -p goxue_db &lt; init.sql 编译二进制包 # 编译当前平台 # go build -o backend main.go # 编译 Linux 平台 # GOOS=linux GOARCH=amd64 go build -o backend main.go # 编译 Windows 平台 # GOOS=windows GOARCH=amd64 go build -o backend.exe main.go # 编译 macOS 平台 GOOS=darwin GOARCH=amd64 go build -o backend main.go 启动服务 # 方式一：直接运行编译好的二进制文件 ./backend # 方式二：使用 go run 直接运行 # go run main.go 后端服务默认运行在 http://localhost:8080">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="素材">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="Goxue Engine
+
+  
+  
+  
+  
+
+一个面向儿童的互动式教育平台，支持富文本内容发布、Canvas 动画展示、Mermaid 思维导图，以及完善的内容管理系统。
+✨ 核心特性
+📝 内容创作与展示
+
+Markdown 编辑器: 基于 v-md-editor 的强大文本编辑功能
+Canvas 动画: 支持自定义 JavaScript 动画代码，实现交互式问题解析
+
+重播动画功能
+全屏播放支持
+响应式画布尺寸适配
+
+
+Mermaid 思维导图: 支持多种图表类型
+
+思维导图 (mindmap)
+流程图 (flowchart)
+时序图 (sequence diagram)
+甘特图 (gantt)
+以及更多&hellip;
+
+
+
+🎨 交互式图表控制
+
+缩放功能: 放大/缩小思维导图
+拖拽平移: 自由拖动查看大型图表
+旋转视图: 支持 ±90° 旋转查看
+重置视图: 一键恢复默认视图
+全屏模式: 沉浸式查看体验
+
+👤 用户系统
+
+微信一键登录: 集成微信授权
+角色权限管理: User / Admin 双角色体系
+个人中心: 用户信息管理
+
+🛡️ 内容管理
+
+审核流程: 管理员审核机制
+分类管理: 内容分类与组织
+公开访问: 支持未登录用户浏览文章详情页
+
+🏗️ 技术架构
+后端技术栈
+
+语言: Go 1.21&#43;
+框架: Beego v2
+数据库: MySQL
+配置: .env 环境变量管理
+架构: 模块化分层架构 (RESTful API)
+
+前端技术栈
+
+框架: Vue 3 &#43; TypeScript
+UI 库: Element Plus
+构建工具: Vite
+状态管理: Pinia
+编辑器:
+
+@kangc/v-md-editor (Markdown)
+mermaid (图表渲染)
+
+
+可视化增强:
+
+svg-pan-zoom (SVG 交互控制)
+Canvas API (动画渲染)
+
+
+
+移动端 (可选)
+
+框架: unibest (uni-app &#43; Vue 3)
+多端支持: 可编译为 H5 或微信小程序
+
+📁 项目结构
+Goxue_Engine/
+├── backend/                 # Go &#43; Beego v2 后端
+│   ├── conf/               # 应用配置
+│   ├── modules/            # 业务模块
+│   │   ├── user/          # 用户模块
+│   │   ├── content/       # 内容模块
+│   │   └── common/        # 公共模块
+│   ├── routers/           # API 路由
+│   ├── static/            # 静态资源
+│   │   └── admin/        # 前端构建产物
+│   ├── main.go
+│   └── .env              # 环境配置
+├── frontend/              # Vue 3 &#43; Element Plus 管理后台
+│   ├── src/
+│   │   ├── api/          # API 接口
+│   │   ├── views/        # 页面组件
+│   │   ├── plugins/      # 插件配置 (v-md-editor)
+│   │   └── types/        # TypeScript 类型定义
+│   ├── vite.config.ts
+│   └── package.json
+└── mobile/               # uni-app 移动端 (可选)
+    ├── src/
+    └── package.json
+🚀 快速开始
+环境要求
+
+Go 1.24&#43;
+Node.js 16&#43;
+MySQL 8.0&#43;
+
+后端启动
+
+配置环境变量
+
+cd backend
+# 直接编辑现有的 .env 文件
+# 配置数据库连接等信息
+
+安装依赖
+
+go mod tidy
+
+初始化数据库
+
+# 执行 SQL 初始化脚不需要安装
+# mysql -u root -p goxue_db &lt; init.sql
+
+编译二进制包
+
+# 编译当前平台
+# go build -o backend main.go
+# 编译 Linux 平台
+# GOOS=linux GOARCH=amd64 go build -o backend main.go
+# 编译 Windows 平台
+# GOOS=windows GOARCH=amd64 go build -o backend.exe main.go
+# 编译 macOS 平台
+GOOS=darwin GOARCH=amd64 go build -o backend main.go
+
+启动服务
+
+# 方式一：直接运行编译好的二进制文件
+./backend
+# 方式二：使用 go run 直接运行
+# go run main.go
+后端服务默认运行在 http://localhost:8080">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "http://localhost:1313/%E7%B4%A0%E6%9D%90/readme/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Goxue Engine 一个面向儿童的互动式教育平台，支持富文本内容发布、Canvas 动画展示、Mermaid 思维导图，以及完善的内容管理系统。\n✨ 核心特性 📝 内容创作与展示 Markdown 编辑器: 基于 v-md-editor 的强大文本编辑功能 Canvas 动画: 支持自定义 JavaScript 动画代码，实现交互式问题解析 重播动画功能 全屏播放支持 响应式画布尺寸适配 Mermaid 思维导图: 支持多种图表类型 思维导图 (mindmap) 流程图 (flowchart) 时序图 (sequence diagram) 甘特图 (gantt) 以及更多\u0026hellip; 🎨 交互式图表控制 缩放功能: 放大/缩小思维导图 拖拽平移: 自由拖动查看大型图表 旋转视图: 支持 ±90° 旋转查看 重置视图: 一键恢复默认视图 全屏模式: 沉浸式查看体验 👤 用户系统 微信一键登录: 集成微信授权 角色权限管理: User / Admin 双角色体系 个人中心: 用户信息管理 🛡️ 内容管理 审核流程: 管理员审核机制 分类管理: 内容分类与组织 公开访问: 支持未登录用户浏览文章详情页 🏗️ 技术架构 后端技术栈 语言: Go 1.21+ 框架: Beego v2 数据库: MySQL 配置: .env 环境变量管理 架构: 模块化分层架构 (RESTful API) 前端技术栈 框架: Vue 3 + TypeScript UI 库: Element Plus 构建工具: Vite 状态管理: Pinia 编辑器: @kangc/v-md-editor (Markdown) mermaid (图表渲染) 可视化增强: svg-pan-zoom (SVG 交互控制) Canvas API (动画渲染) 移动端 (可选) 框架: unibest (uni-app + Vue 3) 多端支持: 可编译为 H5 或微信小程序 📁 项目结构 Goxue_Engine/ ├── backend/ # Go + Beego v2 后端 │ ├── conf/ # 应用配置 │ ├── modules/ # 业务模块 │ │ ├── user/ # 用户模块 │ │ ├── content/ # 内容模块 │ │ └── common/ # 公共模块 │ ├── routers/ # API 路由 │ ├── static/ # 静态资源 │ │ └── admin/ # 前端构建产物 │ ├── main.go │ └── .env # 环境配置 ├── frontend/ # Vue 3 + Element Plus 管理后台 │ ├── src/ │ │ ├── api/ # API 接口 │ │ ├── views/ # 页面组件 │ │ ├── plugins/ # 插件配置 (v-md-editor) │ │ └── types/ # TypeScript 类型定义 │ ├── vite.config.ts │ └── package.json └── mobile/ # uni-app 移动端 (可选) ├── src/ └── package.json 🚀 快速开始 环境要求 Go 1.24+ Node.js 16+ MySQL 8.0+ 后端启动 配置环境变量 cd backend # 直接编辑现有的 .env 文件 # 配置数据库连接等信息 安装依赖 go mod tidy 初始化数据库 # 执行 SQL 初始化脚不需要安装 # mysql -u root -p goxue_db \u0026lt; init.sql 编译二进制包 # 编译当前平台 # go build -o backend main.go # 编译 Linux 平台 # GOOS=linux GOARCH=amd64 go build -o backend main.go # 编译 Windows 平台 # GOOS=windows GOARCH=amd64 go build -o backend.exe main.go # 编译 macOS 平台 GOOS=darwin GOARCH=amd64 go build -o backend main.go 启动服务 # 方式一：直接运行编译好的二进制文件 ./backend # 方式二：使用 go run 直接运行 # go run main.go 后端服务默认运行在 http://localhost:8080\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Goxue Engine 一个面向儿童的互动式教育平台，支持富文本内容发布、Canvas 动画展示、Mermaid 思维导图，以及完善的内容管理系统。\n✨ 核心特性 📝 内容创作与展示 Markdown 编辑器: 基于 v-md-editor 的强大文本编辑功能 Canvas 动画: 支持自定义 JavaScript 动画代码，实现交互式问题解析 重播动画功能 全屏播放支持 响应式画布尺寸适配 Mermaid 思维导图: 支持多种图表类型 思维导图 (mindmap) 流程图 (flowchart) 时序图 (sequence diagram) 甘特图 (gantt) 以及更多… 🎨 交互式图表控制 缩放功能: 放大/缩小思维导图 拖拽平移: 自由拖动查看大型图表 旋转视图: 支持 ±90° 旋转查看 重置视图: 一键恢复默认视图 全屏模式: 沉浸式查看体验 👤 用户系统 微信一键登录: 集成微信授权 角色权限管理: User / Admin 双角色体系 个人中心: 用户信息管理 🛡️ 内容管理 审核流程: 管理员审核机制 分类管理: 内容分类与组织 公开访问: 支持未登录用户浏览文章详情页 🏗️ 技术架构 后端技术栈 语言: Go 1.21+ 框架: Beego v2 数据库: MySQL 配置: .env 环境变量管理 架构: 模块化分层架构 (RESTful API) 前端技术栈 框架: Vue 3 + TypeScript UI 库: Element Plus 构建工具: Vite 状态管理: Pinia 编辑器: @kangc/v-md-editor (Markdown) mermaid (图表渲染) 可视化增强: svg-pan-zoom (SVG 交互控制) Canvas API (动画渲染) 移动端 (可选) 框架: unibest (uni-app + Vue 3) 多端支持: 可编译为 H5 或微信小程序 📁 项目结构 Goxue_Engine/ ├── backend/ # Go + Beego v2 后端 │ ├── conf/ # 应用配置 │ ├── modules/ # 业务模块 │ │ ├── user/ # 用户模块 │ │ ├── content/ # 内容模块 │ │ └── common/ # 公共模块 │ ├── routers/ # API 路由 │ ├── static/ # 静态资源 │ │ └── admin/ # 前端构建产物 │ ├── main.go │ └── .env # 环境配置 ├── frontend/ # Vue 3 + Element Plus 管理后台 │ ├── src/ │ │ ├── api/ # API 接口 │ │ ├── views/ # 页面组件 │ │ ├── plugins/ # 插件配置 (v-md-editor) │ │ └── types/ # TypeScript 类型定义 │ ├── vite.config.ts │ └── package.json └── mobile/ # uni-app 移动端 (可选) ├── src/ └── package.json 🚀 快速开始 环境要求 Go 1.24+ Node.js 16+ MySQL 8.0+ 后端启动 配置环境变量 cd backend # 直接编辑现有的 .env 文件 # 配置数据库连接等信息 安装依赖 go mod tidy 初始化数据库 # 执行 SQL 初始化脚不需要安装 # mysql -u root -p goxue_db \u003c init.sql 编译二进制包 # 编译当前平台 # go build -o backend main.go # 编译 Linux 平台 # GOOS=linux GOARCH=amd64 go build -o backend main.go # 编译 Windows 平台 # GOOS=windows GOARCH=amd64 go build -o backend.exe main.go # 编译 macOS 平台 GOOS=darwin GOARCH=amd64 go build -o backend main.go 启动服务 # 方式一：直接运行编译好的二进制文件 ./backend # 方式二：使用 go run 直接运行 # go run main.go 后端服务默认运行在 http://localhost:8080\n前端启动 安装依赖 cd frontend npm install 配置 API 地址 # 编辑 .env 或 vite.config.ts 中的 API 代理配置 开发模式 npm run dev # 访问 http://localhost:5173 生产构建 npm run build # 产物输出到 ../backend/static/admin 📖 API 文档 认证相关 POST /api/v1/auth/wechat-login - 微信登录 内容管理 GET /api/v1/content - 获取已审核内容列表（公开） GET /api/v1/content/:id - 获取内容详情（支持未登录访问） POST /api/v1/content - 创建内容（需登录） PUT /api/v1/content/:id - 更新内容（需登录） DELETE /api/v1/content/:id - 删除内容（需登录） 分类管理 GET /api/v1/category - 获取分类列表 POST /api/v1/category - 创建分类（管理员） PUT /api/v1/category/:id - 更新分类（管理员） DELETE /api/v1/category/:id - 删除分类（管理员） 管理员功能 GET /api/v1/admin/content/pending - 待审核内容列表 PUT /api/v1/admin/content/:id/audit - 审核内容 GET /api/v1/admin/users - 用户管理 🎯 核心功能演示 Canvas 动画示例 文章详情页支持嵌入自定义 Canvas 动画，通过 JavaScript 代码实现交互式教学：\n// Canvas 动画代码示例 const width = canvas.width; const height = canvas.height; // 绘制动画逻辑 function animate() { ctx.clearRect(0, 0, width, height); // 你的动画代码 requestAnimationFrame(animate); } animate(); Mermaid 思维导图示例 在 Markdown 内容中使用 Mermaid 语法：\n# 文章标题 这是正文内容... ​```mermaid mindmap root((学习计划)) 数学 加法 减法 语文 阅读 写作 ​``` 🔧 配置说明 后端配置 (.env) APP_NAME=GoxueEngine HTTP_PORT=8080 RUN_MODE=dev # 数据库配置 DB_DRIVER=mysql DB_USER=goxue_db DB_PASSWORD=G3k2n5KYwLaYX3kM DB_HOST=192.168.1.116 DB_PORT=3306 DB_NAME=goxue_db DB_CHARSET=utf8 DB_LOC=Local # 微信配置 WECHAT_APP_ID=your_app_id WECHAT_SECRET=your_secret 前端配置 (.env) VITE_API_BASE_URL=http://localhost:8080 VITE_APP_TITLE=Goxue Engine 管理后台 🤝 贡献指南 欢迎提交 Issue 和 Pull Request！\nFork 本仓库 创建特性分支 (git checkout -b feature/AmazingFeature) 提交更改 (git commit -m 'Add some AmazingFeature') 推送到分支 (git push origin feature/AmazingFeature) 开启 Pull Request 📝 开发路线图 基础架构搭建 用户认证系统 内容管理系统 Markdown 编辑器集成 Canvas 动画支持 Mermaid 图表支持 思维导图交互控制（缩放、拖拽、旋转） 文章详情页公开访问 响应式设计优化 需求反馈系统 移动端 H5/小程序 评分系统 搜索功能 内容推荐算法 📄 许可证 本项目采用 Apache 许可证 - 详见 LICENSE 文件\n👨‍💻 作者 Zhang Erhao\n⭐ 如果这个项目对你有帮助，请给我们一个 Star！\n",
+  "wordCount" : "574",
+  "inLanguage": "zh-cn",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "张二浩"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/%E7%B4%A0%E6%9D%90/readme/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "个人博客",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="个人博客 (Alt + H)">个人博客</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<style>
+ 
+.mermaid {
+    min-height: 500px;  
+    width: 100%;       
+    display: block;    
+}
+
+ 
+.mermaid svg {
+     
+    width: 100% !important; 
+    height: 500px !important; 
+    
+     
+    max-width: none !important; 
+}
+</style>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta"><span>3 min</span>&nbsp;·&nbsp;<span>张二浩</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="goxue-engine">Goxue Engine<a hidden class="anchor" aria-hidden="true" href="#goxue-engine">#</a></h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go" alt="Go Version">
+  <img src="https://img.shields.io/badge/Beego-v2-blue?style=flat" alt="Beego Framework">
+  <img src="https://img.shields.io/badge/Vue-3.0-brightgreen?style=flat&logo=vue.js" alt="Vue 3">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
+</p>
+<p>一个面向儿童的互动式教育平台，支持富文本内容发布、Canvas 动画展示、Mermaid 思维导图，以及完善的内容管理系统。</p>
+<h2 id="-核心特性">✨ 核心特性<a hidden class="anchor" aria-hidden="true" href="#-核心特性">#</a></h2>
+<h3 id="-内容创作与展示">📝 内容创作与展示<a hidden class="anchor" aria-hidden="true" href="#-内容创作与展示">#</a></h3>
+<ul>
+<li><strong>Markdown 编辑器</strong>: 基于 <code>v-md-editor</code> 的强大文本编辑功能</li>
+<li><strong>Canvas 动画</strong>: 支持自定义 JavaScript 动画代码，实现交互式问题解析
+<ul>
+<li>重播动画功能</li>
+<li>全屏播放支持</li>
+<li>响应式画布尺寸适配</li>
+</ul>
+</li>
+<li><strong>Mermaid 思维导图</strong>: 支持多种图表类型
+<ul>
+<li>思维导图 (mindmap)</li>
+<li>流程图 (flowchart)</li>
+<li>时序图 (sequence diagram)</li>
+<li>甘特图 (gantt)</li>
+<li>以及更多&hellip;</li>
+</ul>
+</li>
+</ul>
+<h3 id="-交互式图表控制">🎨 交互式图表控制<a hidden class="anchor" aria-hidden="true" href="#-交互式图表控制">#</a></h3>
+<ul>
+<li><strong>缩放功能</strong>: 放大/缩小思维导图</li>
+<li><strong>拖拽平移</strong>: 自由拖动查看大型图表</li>
+<li><strong>旋转视图</strong>: 支持 ±90° 旋转查看</li>
+<li><strong>重置视图</strong>: 一键恢复默认视图</li>
+<li><strong>全屏模式</strong>: 沉浸式查看体验</li>
+</ul>
+<h3 id="-用户系统">👤 用户系统<a hidden class="anchor" aria-hidden="true" href="#-用户系统">#</a></h3>
+<ul>
+<li><strong>微信一键登录</strong>: 集成微信授权</li>
+<li><strong>角色权限管理</strong>: User / Admin 双角色体系</li>
+<li><strong>个人中心</strong>: 用户信息管理</li>
+</ul>
+<h3 id="-内容管理">🛡️ 内容管理<a hidden class="anchor" aria-hidden="true" href="#-内容管理">#</a></h3>
+<ul>
+<li><strong>审核流程</strong>: 管理员审核机制</li>
+<li><strong>分类管理</strong>: 内容分类与组织</li>
+<li><strong>公开访问</strong>: 支持未登录用户浏览文章详情页</li>
+</ul>
+<h2 id="-技术架构">🏗️ 技术架构<a hidden class="anchor" aria-hidden="true" href="#-技术架构">#</a></h2>
+<h3 id="后端技术栈">后端技术栈<a hidden class="anchor" aria-hidden="true" href="#后端技术栈">#</a></h3>
+<ul>
+<li><strong>语言</strong>: Go 1.21+</li>
+<li><strong>框架</strong>: Beego v2</li>
+<li><strong>数据库</strong>: MySQL</li>
+<li><strong>配置</strong>: <code>.env</code> 环境变量管理</li>
+<li><strong>架构</strong>: 模块化分层架构 (RESTful API)</li>
+</ul>
+<h3 id="前端技术栈">前端技术栈<a hidden class="anchor" aria-hidden="true" href="#前端技术栈">#</a></h3>
+<ul>
+<li><strong>框架</strong>: Vue 3 + TypeScript</li>
+<li><strong>UI 库</strong>: Element Plus</li>
+<li><strong>构建工具</strong>: Vite</li>
+<li><strong>状态管理</strong>: Pinia</li>
+<li><strong>编辑器</strong>:
+<ul>
+<li><code>@kangc/v-md-editor</code> (Markdown)</li>
+<li><code>mermaid</code> (图表渲染)</li>
+</ul>
+</li>
+<li><strong>可视化增强</strong>:
+<ul>
+<li><code>svg-pan-zoom</code> (SVG 交互控制)</li>
+<li>Canvas API (动画渲染)</li>
+</ul>
+</li>
+</ul>
+<h3 id="移动端-可选">移动端 (可选)<a hidden class="anchor" aria-hidden="true" href="#移动端-可选">#</a></h3>
+<ul>
+<li><strong>框架</strong>: unibest (uni-app + Vue 3)</li>
+<li><strong>多端支持</strong>: 可编译为 H5 或微信小程序</li>
+</ul>
+<h2 id="-项目结构">📁 项目结构<a hidden class="anchor" aria-hidden="true" href="#-项目结构">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Goxue_Engine/
+</span></span><span style="display:flex;"><span>├── backend/                 # Go + Beego v2 后端
+</span></span><span style="display:flex;"><span>│   ├── conf/               # 应用配置
+</span></span><span style="display:flex;"><span>│   ├── modules/            # 业务模块
+</span></span><span style="display:flex;"><span>│   │   ├── user/          # 用户模块
+</span></span><span style="display:flex;"><span>│   │   ├── content/       # 内容模块
+</span></span><span style="display:flex;"><span>│   │   └── common/        # 公共模块
+</span></span><span style="display:flex;"><span>│   ├── routers/           # API 路由
+</span></span><span style="display:flex;"><span>│   ├── static/            # 静态资源
+</span></span><span style="display:flex;"><span>│   │   └── admin/        # 前端构建产物
+</span></span><span style="display:flex;"><span>│   ├── main.go
+</span></span><span style="display:flex;"><span>│   └── .env              # 环境配置
+</span></span><span style="display:flex;"><span>├── frontend/              # Vue 3 + Element Plus 管理后台
+</span></span><span style="display:flex;"><span>│   ├── src/
+</span></span><span style="display:flex;"><span>│   │   ├── api/          # API 接口
+</span></span><span style="display:flex;"><span>│   │   ├── views/        # 页面组件
+</span></span><span style="display:flex;"><span>│   │   ├── plugins/      # 插件配置 (v-md-editor)
+</span></span><span style="display:flex;"><span>│   │   └── types/        # TypeScript 类型定义
+</span></span><span style="display:flex;"><span>│   ├── vite.config.ts
+</span></span><span style="display:flex;"><span>│   └── package.json
+</span></span><span style="display:flex;"><span>└── mobile/               # uni-app 移动端 (可选)
+</span></span><span style="display:flex;"><span>    ├── src/
+</span></span><span style="display:flex;"><span>    └── package.json
+</span></span></code></pre></div><h2 id="-快速开始">🚀 快速开始<a hidden class="anchor" aria-hidden="true" href="#-快速开始">#</a></h2>
+<h3 id="环境要求">环境要求<a hidden class="anchor" aria-hidden="true" href="#环境要求">#</a></h3>
+<ul>
+<li>Go 1.24+</li>
+<li>Node.js 16+</li>
+<li>MySQL 8.0+</li>
+</ul>
+<h3 id="后端启动">后端启动<a hidden class="anchor" aria-hidden="true" href="#后端启动">#</a></h3>
+<ol>
+<li><strong>配置环境变量</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> backend
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 直接编辑现有的 .env 文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 配置数据库连接等信息</span>
+</span></span></code></pre></div><ol start="2">
+<li><strong>安装依赖</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go mod tidy
+</span></span></code></pre></div><ol start="3">
+<li><strong>初始化数据库</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># 执行 SQL 初始化脚不需要安装</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># mysql -u root -p goxue_db &lt; init.sql</span>
+</span></span></code></pre></div><ol start="4">
+<li><strong>编译二进制包</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># 编译当前平台</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># go build -o backend main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 编译 Linux 平台</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># GOOS=linux GOARCH=amd64 go build -o backend main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 编译 Windows 平台</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># GOOS=windows GOARCH=amd64 go build -o backend.exe main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 编译 macOS 平台</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">GOOS</span><span style="color:#0550ae">=</span>darwin <span style="color:#953800">GOARCH</span><span style="color:#0550ae">=</span>amd64 go build -o backend main.go
+</span></span></code></pre></div><ol start="5">
+<li><strong>启动服务</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># 方式一：直接运行编译好的二进制文件</span>
+</span></span><span style="display:flex;"><span>./backend
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 方式二：使用 go run 直接运行</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># go run main.go</span>
+</span></span></code></pre></div><p>后端服务默认运行在 <code>http://localhost:8080</code></p>
+<h3 id="前端启动">前端启动<a hidden class="anchor" aria-hidden="true" href="#前端启动">#</a></h3>
+<ol>
+<li><strong>安装依赖</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> frontend
+</span></span><span style="display:flex;"><span>npm install
+</span></span></code></pre></div><ol start="2">
+<li><strong>配置 API 地址</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># 编辑 .env 或 vite.config.ts 中的 API 代理配置</span>
+</span></span></code></pre></div><ol start="3">
+<li><strong>开发模式</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm run dev
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 访问 http://localhost:5173</span>
+</span></span></code></pre></div><ol start="4">
+<li><strong>生产构建</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm run build
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 产物输出到 ../backend/static/admin</span>
+</span></span></code></pre></div><h2 id="-api-文档">📖 API 文档<a hidden class="anchor" aria-hidden="true" href="#-api-文档">#</a></h2>
+<h3 id="认证相关">认证相关<a hidden class="anchor" aria-hidden="true" href="#认证相关">#</a></h3>
+<ul>
+<li><code>POST /api/v1/auth/wechat-login</code> - 微信登录</li>
+</ul>
+<h3 id="内容管理">内容管理<a hidden class="anchor" aria-hidden="true" href="#内容管理">#</a></h3>
+<ul>
+<li><code>GET /api/v1/content</code> - 获取已审核内容列表（公开）</li>
+<li><code>GET /api/v1/content/:id</code> - 获取内容详情（支持未登录访问）</li>
+<li><code>POST /api/v1/content</code> - 创建内容（需登录）</li>
+<li><code>PUT /api/v1/content/:id</code> - 更新内容（需登录）</li>
+<li><code>DELETE /api/v1/content/:id</code> - 删除内容（需登录）</li>
+</ul>
+<h3 id="分类管理">分类管理<a hidden class="anchor" aria-hidden="true" href="#分类管理">#</a></h3>
+<ul>
+<li><code>GET /api/v1/category</code> - 获取分类列表</li>
+<li><code>POST /api/v1/category</code> - 创建分类（管理员）</li>
+<li><code>PUT /api/v1/category/:id</code> - 更新分类（管理员）</li>
+<li><code>DELETE /api/v1/category/:id</code> - 删除分类（管理员）</li>
+</ul>
+<h3 id="管理员功能">管理员功能<a hidden class="anchor" aria-hidden="true" href="#管理员功能">#</a></h3>
+<ul>
+<li><code>GET /api/v1/admin/content/pending</code> - 待审核内容列表</li>
+<li><code>PUT /api/v1/admin/content/:id/audit</code> - 审核内容</li>
+<li><code>GET /api/v1/admin/users</code> - 用户管理</li>
+</ul>
+<h2 id="-核心功能演示">🎯 核心功能演示<a hidden class="anchor" aria-hidden="true" href="#-核心功能演示">#</a></h2>
+<h3 id="canvas-动画示例">Canvas 动画示例<a hidden class="anchor" aria-hidden="true" href="#canvas-动画示例">#</a></h3>
+<p>文章详情页支持嵌入自定义 Canvas 动画，通过 JavaScript 代码实现交互式教学：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#57606a">// Canvas 动画代码示例
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">const</span> <span style="color:#1f2328">width</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">width</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">height</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">canvas</span><span style="color:#1f2328">.</span><span style="color:#1f2328">height</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 绘制动画逻辑
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">function</span> <span style="color:#1f2328">animate</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">ctx</span><span style="color:#1f2328">.</span><span style="color:#1f2328">clearRect</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">width</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">height</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// 你的动画代码
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>  <span style="color:#1f2328">requestAnimationFrame</span><span style="color:#1f2328">(</span><span style="color:#1f2328">animate</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">animate</span><span style="color:#1f2328">();</span>
+</span></span></code></pre></div><h3 id="mermaid-思维导图示例">Mermaid 思维导图示例<a hidden class="anchor" aria-hidden="true" href="#mermaid-思维导图示例">#</a></h3>
+<p>在 Markdown 内容中使用 Mermaid 语法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># 文章标题
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>这是正文内容...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>​``<span style="color:#0a3069">`mermaid
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">mindmap
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  root((学习计划))
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    数学
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      加法
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      减法
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    语文
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      阅读
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      写作
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">​`</span>``
+</span></span></code></pre></div><h2 id="-配置说明">🔧 配置说明<a hidden class="anchor" aria-hidden="true" href="#-配置说明">#</a></h2>
+<h3 id="后端配置-env">后端配置 (<code>.env</code>)<a hidden class="anchor" aria-hidden="true" href="#后端配置-env">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span><span style="color:#953800">APP_NAME</span><span style="color:#0550ae">=</span>GoxueEngine
+</span></span><span style="display:flex;"><span><span style="color:#953800">HTTP_PORT</span><span style="color:#0550ae">=</span><span style="color:#0550ae">8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">RUN_MODE</span><span style="color:#0550ae">=</span>dev
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 数据库配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_DRIVER</span><span style="color:#0550ae">=</span>mysql
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_USER</span><span style="color:#0550ae">=</span>goxue_db
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_PASSWORD</span><span style="color:#0550ae">=</span>G3k2n5KYwLaYX3kM
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_HOST</span><span style="color:#0550ae">=</span>192.168.1.116
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_PORT</span><span style="color:#0550ae">=</span><span style="color:#0550ae">3306</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_NAME</span><span style="color:#0550ae">=</span>goxue_db
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_CHARSET</span><span style="color:#0550ae">=</span>utf8
+</span></span><span style="display:flex;"><span><span style="color:#953800">DB_LOC</span><span style="color:#0550ae">=</span>Local
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># 微信配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">WECHAT_APP_ID</span><span style="color:#0550ae">=</span>your_app_id
+</span></span><span style="display:flex;"><span><span style="color:#953800">WECHAT_SECRET</span><span style="color:#0550ae">=</span>your_secret
+</span></span></code></pre></div><h3 id="前端配置-env">前端配置 (<code>.env</code>)<a hidden class="anchor" aria-hidden="true" href="#前端配置-env">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-env" data-lang="env"><span style="display:flex;"><span><span style="color:#953800">VITE_API_BASE_URL</span><span style="color:#0550ae">=</span>http://localhost:8080
+</span></span><span style="display:flex;"><span><span style="color:#953800">VITE_APP_TITLE</span><span style="color:#0550ae">=</span>Goxue Engine 管理后台
+</span></span></code></pre></div><h2 id="-贡献指南">🤝 贡献指南<a hidden class="anchor" aria-hidden="true" href="#-贡献指南">#</a></h2>
+<p>欢迎提交 Issue 和 Pull Request！</p>
+<ol>
+<li>Fork 本仓库</li>
+<li>创建特性分支 (<code>git checkout -b feature/AmazingFeature</code>)</li>
+<li>提交更改 (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+<li>推送到分支 (<code>git push origin feature/AmazingFeature</code>)</li>
+<li>开启 Pull Request</li>
+</ol>
+<h2 id="-开发路线图">📝 开发路线图<a hidden class="anchor" aria-hidden="true" href="#-开发路线图">#</a></h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 基础架构搭建</li>
+<li><input checked="" disabled="" type="checkbox"> 用户认证系统</li>
+<li><input checked="" disabled="" type="checkbox"> 内容管理系统</li>
+<li><input checked="" disabled="" type="checkbox"> Markdown 编辑器集成</li>
+<li><input checked="" disabled="" type="checkbox"> Canvas 动画支持</li>
+<li><input checked="" disabled="" type="checkbox"> Mermaid 图表支持</li>
+<li><input checked="" disabled="" type="checkbox"> 思维导图交互控制（缩放、拖拽、旋转）</li>
+<li><input checked="" disabled="" type="checkbox"> 文章详情页公开访问</li>
+<li><input checked="" disabled="" type="checkbox"> 响应式设计优化</li>
+<li><input disabled="" type="checkbox"> 需求反馈系统</li>
+<li><input disabled="" type="checkbox"> 移动端 H5/小程序</li>
+<li><input disabled="" type="checkbox"> 评分系统</li>
+<li><input disabled="" type="checkbox"> 搜索功能</li>
+<li><input disabled="" type="checkbox"> 内容推荐算法</li>
+</ul>
+<h2 id="-许可证">📄 许可证<a hidden class="anchor" aria-hidden="true" href="#-许可证">#</a></h2>
+<p>本项目采用 Apache 许可证 - 详见 <a href="LICENSE">LICENSE</a> 文件</p>
+<h2 id="-作者">👨‍💻 作者<a hidden class="anchor" aria-hidden="true" href="#-作者">#</a></h2>
+<p>Zhang Erhao</p>
+<hr>
+<p>⭐ 如果这个项目对你有帮助，请给我们一个 Star！</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on x"
+            href="https://x.com/intent/tweet/?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f&amp;title=&amp;summary=&amp;source=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f&title=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on whatsapp"
+            href="https://api.whatsapp.com/send?text=%20-%20http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on telegram"
+            href="https://telegram.me/share/url?text=&amp;url=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share  on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=&u=http%3a%2f%2flocalhost%3a1313%2f%25E7%25B4%25A0%25E6%259D%2590%2freadme%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">个人博客</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
